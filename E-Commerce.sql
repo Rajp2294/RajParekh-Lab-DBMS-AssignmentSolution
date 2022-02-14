@@ -188,8 +188,8 @@ WHERE
         OR CUSTOMER.CUS_NAME LIKE '%A';
 
 /* 9) Create a stored procedure to display the Rating for a Supplier if any along with the Verdict on that rating 
-if any like if rating >4 then “Genuine Supplier” 
-if rating >2 “Average Supplier” 
+if any like if rating > 4 then “Genuine Supplier” 
+if rating > 2 “Average Supplier” 
 else “Supplier should not be considered”.*/
 DELIMITER $$
 use `order-directory` $$
@@ -197,7 +197,7 @@ create procedure PRO()
 BEGIN
 	select SUPPLIER.SUPP_ID, SUPPLIER.SUPP_NAME , RATING.RAT_RATSTARS, 
 CASE
-	when RATING.RAT_RATSTARS > 4 then "Genuine Supplier"
+    when RATING.RAT_RATSTARS > 4 then "Genuine Supplier"
     when RATING.RAT_RATSTARS > 2 then "Average Supplier"
     else "Supplier should not be considered"
 END    
